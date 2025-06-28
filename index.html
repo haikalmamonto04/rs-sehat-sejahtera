@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS Sehat Sejahtera - Rumah Sakit Terpercaya</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+                    backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header.scrolled {
+            background: white;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #0ea5e9;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0ea5e9;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #374151;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f9ff, #ecfdf5);
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1), transparent);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: 10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.1), transparent);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #374151;
+            padding: 1rem 2rem;
+            border: 2px solid #d1d5db;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: #f9fafb;
+            border-color: #0ea5e9;
+            color: #0ea5e9;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0 auto 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 500px;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .floating-card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: #f9fafb;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(20, 184, 166, 0.1);
+            color: #14b8a6;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .section-title .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .achievement-card {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .achievement-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0ea5e9;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-item {
+            text-align: center;
+        }
+
+        .stats-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .service-card:hover {
+            background: white;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #14b8a6;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #14b8a6;
+            border-radius: 50%;
+        }
+
+        .emergency-cta {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .emergency-cta h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .emergency-cta p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .emergency-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-emergency {
+            background: white;
+            color: #ef4444;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-emergency:hover {
+            background: #fef2f2;
+            transform: translateY(-2px);
+        }
+
+        .btn-emergency-outline {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-emergency-outline:hover {
+            background: white;
+            color: #ef4444;
+        }
+
+        /* Doctors Section */
+        .doctors {
+            padding: 5rem 0;
+            background: #f9fafb;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .doctor-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .doctor-image img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .doctor-card:hover .doctor-image img {
+            transform: scale(1.05);
+        }
+
+        .doctor-rating {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            -webkit-backdrop-filter: blur(10px);
+                    backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .doctor-rating .star {
+            color: #fbbf24;
+        }
+
+        .doctor-info {
+            padding: 2rem;
+        }
+
+        .doctor-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor-specialty {
+            color: #0ea5e9;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .doctor-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .doctor-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .doctor-detail i {
+            color: #14b8a6;
+            width: 16px;
+        }
+
+        .doctor-awards {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1rem;
+        }
+
+        .award-badge {
+            display: inline-block;
+            background: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin: 0.25rem 0.25rem 0.25rem 0;
+        }
+
+        /* Facilities Section */
+        .facilities {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .facility-card {
+            position: relative;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .facility-card img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .facility-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .facility-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            align-items: end;
+            padding: 2rem;
+        }
+
+        .facility-info h3 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .facility-info p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #f9fafb;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            space-y: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0ea5e9;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #0ea5e9;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #0ea5e9;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .emergency-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .doctors-grid,
+            .services-grid,
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">RS</div>
+                <div class="logo-text">
+                    <h1>RS Sehat Sejahtera</h1>
+                    <p>Melayani dengan Hati</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#dokter">Dokter</a></li>
+                    <li><a href="#fasilitas">Fasilitas</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+                <div class="mobile-menu" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="beranda">
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <div class="hero-badge">✨ Rumah Sakit Terpercaya di Jakarta</div>
+                <h1 class="hero-title">
+                    Kesehatan Anda,
+                    <span class="gradient-text">Prioritas Kami</span>
+                </h1>
+                <p class="hero-description">
+                    RS Sehat Sejahtera memberikan pelayanan kesehatan terbaik dengan teknologi modern, 
+                    tenaga medis profesional, dan fasilitas lengkap untuk keluarga Indonesia.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#kontak" class="btn-primary">
+                        Buat Janji Temu
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:021-555-0123" class="btn-secondary">Hubungi Kami</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Pasien Dilayani</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Tahun Pengalaman</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Layanan Darurat</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image fade-in-up">
+                <img src="https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Modern Hospital Interior">
+                <div class="floating-card">
+                    <div class="floating-card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <div style="font-weight: bold; color: #1f2937;">Akreditasi A</div>
+                        <div style="font-size: 0.9rem; color: #6b7280;">Standar Internasional</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="tentang">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-badge">Tentang Kami</div>
+                <h2 class="section-title">
+                    Mengabdi untuk Kesehatan
+                    <span class="gradient-text">Indonesia</span>
+                </h2>
+                <p class="section-description">
+                    Sejak 1998, RS Sehat Sejahtera telah menjadi pilihan utama keluarga Indonesia 
+                    untuk mendapatkan pelayanan kesehatan berkualitas tinggi dengan sentuhan kemanusiaan.
+                </p>
+            </div>
+
+            <div class="about-grid scroll-animate">
+                <div class="about-content">
+                    <h3>Komitmen Kami untuk Keunggulan</h3>
+                    <p>
+                        Kami memahami bahwa kesehatan adalah aset paling berharga. Oleh karena itu, 
+                        kami berkomitmen untuk memberikan pelayanan terbaik melalui inovasi teknologi medis, 
+                        pengembangan SDM berkelanjutan, dan pendekatan pelayanan yang mengutamakan kenyamanan pasien.
+                    </p>
+                    <p>
+                        Dengan dukungan peralatan medis canggih dan tim medis berpengalaman, 
+                        kami siap melayani berbagai kebutuhan kesehatan mulai dari pemeriksaan rutin 
+                        hingga tindakan medis kompleks.
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-award"></i></div>
+                            <h4 style="font-weight: bold; margin-bottom: 0.5rem;">Akreditasi Nasional</h4>
+                            <p style="font-size: 0.9rem; color: #6b7280;">Terakreditasi A dari Komisi Akreditasi Rumah Sakit</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                            <h4 style="font-weight: bold; margin-bottom: 0.5rem;">Tim Medis Berpengalaman</h4>
+                            <p style="font-size: 0.9rem; color: #6b7280;">Dokter spesialis dan tenaga medis profesional</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                            <h4 style="font-weight: bold; margin-bottom: 0.5rem;">Pelayanan Holistik</h4>
+                            <p style="font-size: 0.9rem; color: #6b7280;">Perawatan menyeluruh untuk kesehatan optimal</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h4 style="font-weight: bold; margin-bottom: 0.5rem;">Standar Keamanan Tinggi</h4>
+                            <p style="font-size: 0.9rem; color: #6b7280;">Protokol keamanan dan kebersihan internasional</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Medical Team">
+                    <div class="achievement-card">
+                        <div class="achievement-number">25+</div>
+                        <div class="achievement-label">Tahun Melayani</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid scroll-animate">
+                <div class="stats-item">
+                    <div class="stats-icon"><i class="fas fa-star"></i></div>
+                    <div class="stats-number">4.8/5</div>
+                    <div class="stats-label">Rating Kepuasan Pasien</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-icon"><i class="fas fa-users"></i></div>
+                    <div class="stats-number">200+</div>
+                    <div class="stats-label">Tenaga Medis Profesional</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-icon"><i class="fas fa-clock"></i></div>
+                    <div class="stats-number">24/7</div>
+                    <div class="stats-label">Layanan Gawat Darurat</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="stats-number">15+</div>
+                    <div class="stats-label">Penghargaan Nasional</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="layanan">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-badge">Layanan Medis</div>
+                <h2 class="section-title">
+                    Layanan Kesehatan
+                    <span class="gradient-text">Terlengkap</span>
+                </h2>
+                <p class="section-description">
+                    Kami menyediakan berbagai layanan medis spesialis dengan standar internasional 
+                    untuk memenuhi kebutuhan kesehatan Anda dan keluarga.
+                </p>
+            </div>
+
+            <div class="services-grid scroll-animate">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Kardiologi</h3>
+                    <p>Pelayanan jantung dan pembuluh darah dengan teknologi terdepan</p>
+                    <ul class="service-features">
+                        <li>EKG</li>
+                        <li>Echocardiography</li>
+                        <li>Kateterisasi Jantung</li>
+                        <li>Bypass Surgery</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Neurologi</h3>
+                    <p>Diagnosa dan pengobatan gangguan sistem saraf</p>
+                    <ul class="service-features">
+                        <li>MRI Brain</li>
+                        <li>CT Scan</li>
+                        <li>EEG</li>
+                        <li>Neurosurgery</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-baby"></i></div>
+                    <h3>Pediatri</h3>
+                    <p>Perawatan kesehatan khusus untuk bayi dan anak-anak</p>
+                    <ul class="service-features">
+                        <li>NICU</li>
+                        <li>Vaksinasi</li>
+                        <li>Tumbuh Kembang</li>
+                        <li>Pediatric Surgery</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Oftalmologi</h3>
+                    <p>Pemeriksaan dan pengobatan mata komprehensif</p>
+                    <ul class="service-features">
+                        <li>Lasik</li>
+                        <li>Katarak</li>
+                        <li>Glaukoma</li>
+                        <li>Retina</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bone"></i></div>
+                    <h3>Ortopedi</h3>
+                    <p>Pengobatan tulang, sendi, dan sistem muskuloskeletal</p>
+                    <ul class="service-features">
+                        <li>Arthroscopy</li>
+                        <li>Joint Replacement</li>
+                        <li>Spine Surgery</li>
+                        <li>Sports Medicine</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-ambulance"></i></div>
+                    <h3>Gawat Darurat</h3>
+                    <p>Pelayanan 24 jam untuk keadaan darurat medis</p>
+                    <ul class="service-features">
+                        <li>Trauma Center</li>
+                        <li>ICU</li>
+                        <li>Ambulance</li>
+                        <li>Emergency Surgery</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Laboratorium</h3>
+                    <p>Pemeriksaan laboratorium lengkap dan akurat</p>
+                    <ul class="service-features">
+                        <li>Hematologi</li>
+                        <li>Kimia Klinik</li>
+                        <li>Mikrobiologi</li>
+                        <li>Patologi</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                    <h3>Penyakit Dalam</h3>
+                    <p>Diagnosis dan pengobatan penyakit internal</p>
+                    <ul class="service-features">
+                        <li>Diabetes</li>
+                        <li>Hipertensi</li>
+                        <li>Gastroenterologi</li>
+                        <li>Endokrinologi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emergency-cta scroll-animate">
+                <h3>Butuh Bantuan Darurat?</h3>
+                <p>
+                    Tim gawat darurat kami siap melayani 24 jam setiap hari. 
+                    Jangan ragu untuk menghubungi kami dalam situasi emergency.
+                </p>
+                <div class="emergency-buttons">
+                    <a href="tel:021-555-0123" class="btn-emergency">
+                        <i class="fas fa-phone"></i>
+                        Hubungi Darurat: (021) 555-0123
+                    </a>
+                    <a href="#kontak" class="btn-emergency-outline">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Lokasi Rumah Sakit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors" id="dokter">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-badge">Tim Medis</div>
+                <h2 class="section-title">
+                    Dokter Spesialis
+                    <span class="gradient-text">Berpengalaman</span>
+                </h2>
+                <p class="section-description">
+                    Tim dokter spesialis kami terdiri dari tenaga medis terbaik dengan pengalaman 
+                    internasional dan dedikasi tinggi untuk kesehatan pasien.
+                </p>
+            </div>
+
+            <div class="doctors-grid scroll-animate">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.pexels.com/photos/612808/pexels-photo-612808.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dr. Ahmad Wijaya">
+                        <div class="doctor-rating">
+                            <i class="fas fa-star star"></i>
+                            <span>4.9</span>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3 class="doctor-name">Dr. Ahmad Wijaya, Sp.JP</h3>
+                        <div class="doctor-specialty">Spesialis Jantung</div>
+                        <div class="doctor-details">
+                            <div class="doctor-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Universitas Indonesia</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>15 Tahun Pengalaman</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>Senin - Jumat</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-phone"></i>
+                                <span>Ext. 1001</span>
+                            </div>
+                        </div>
+                        <div class="doctor-awards">
+                            <div class="award-badge">Best Cardiologist 2023</div>
+                            <div class="award-badge">Excellence in Patient Care</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.pexels.com/photos/5327647/pexels-photo-5327647.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dr. Siti Nurhaliza">
+                        <div class="doctor-rating">
+                            <i class="fas fa-star star"></i>
+                            <span>4.8</span>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3 class="doctor-name">Dr. Siti Nurhaliza, Sp.A</h3>
+                        <div class="doctor-specialty">Spesialis Anak</div>
+                        <div class="doctor-details">
+                            <div class="doctor-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Universitas Gadjah Mada</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Tahun Pengalaman</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>Selasa - Sabtu</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-phone"></i>
+                                <span>Ext. 1002</span>
+                            </div>
+                        </div>
+                        <div class="doctor-awards">
+                            <div class="award-badge">Pediatric Excellence Award</div>
+                            <div class="award-badge">Top Doctor 2023</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dr. Budi Santoso">
+                        <div class="doctor-rating">
+                            <i class="fas fa-star star"></i>
+                            <span>4.9</span>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3 class="doctor-name">Dr. Budi Santoso, Sp.BS</h3>
+                        <div class="doctor-specialty">Spesialis Bedah Saraf</div>
+                        <div class="doctor-details">
+                            <div class="doctor-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Universitas Airlangga</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>18 Tahun Pengalaman</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>Senin - Kamis</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-phone"></i>
+                                <span>Ext. 1003</span>
+                            </div>
+                        </div>
+                        <div class="doctor-awards">
+                            <div class="award-badge">Neurosurgery Innovation Award</div>
+                            <div class="award-badge">Medical Excellence 2023</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.pexels.com/photos/5452207/pexels-photo-5452207.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dr. Maya Sari">
+                        <div class="doctor-rating">
+                            <i class="fas fa-star star"></i>
+                            <span>4.7</span>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3 class="doctor-name">Dr. Maya Sari, Sp.M</h3>
+                        <div class="doctor-specialty">Spesialis Mata</div>
+                        <div class="doctor-details">
+                            <div class="doctor-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Universitas Padjadjaran</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Tahun Pengalaman</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>Rabu - Minggu</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-phone"></i>
+                                <span>Ext. 1004</span>
+                            </div>
+                        </div>
+                        <div class="doctor-awards">
+                            <div class="award-badge">Ophthalmology Excellence</div>
+                            <div class="award-badge">Patient Choice Award</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.pexels.com/photos/6129967/pexels-photo-6129967.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dr. Rudi Hartono">
+                        <div class="doctor-rating">
+                            <i class="fas fa-star star"></i>
+                            <span>4.8</span>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3 class="doctor-name">Dr. Rudi Hartono, Sp.OT</h3>
+                        <div class="doctor-specialty">Spesialis Ortopedi</div>
+                        <div class="doctor-details">
+                            <div class="doctor-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Universitas Brawijaya</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>14 Tahun Pengalaman</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>Senin - Jumat</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-phone"></i>
+                                <span>Ext. 1005</span>
+                            </div>
+                        </div>
+                        <div class="doctor-awards">
+                            <div class="award-badge">Orthopedic Surgery Award</div>
+                            <div class="award-badge">Sports Medicine Excellence</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dr. Lisa Wijayanti">
+                        <div class="doctor-rating">
+                            <i class="fas fa-star star"></i>
+                            <span>4.9</span>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3 class="doctor-name">Dr. Lisa Wijayanti, Sp.OG</h3>
+                        <div class="doctor-specialty">Spesialis Kandungan</div>
+                        <div class="doctor-details">
+                            <div class="doctor-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Universitas Diponegoro</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>11 Tahun Pengalaman</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>Selasa - Sabtu</span>
+                            </div>
+                            <div class="doctor-detail">
+                                <i class="fas fa-phone"></i>
+                                <span>Ext. 1006</span>
+                            </div>
+                        </div>
+                        <div class="doctor-awards">
+                            <div class="award-badge">Women Health Excellence</div>
+                            <div class="award-badge">Maternal Care Award</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="facilities" id="fasilitas">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-badge">Fasilitas</div>
+                <h2 class="section-title">
+                    Fasilitas
+                    <span class="gradient-text">Terdepan</span>
+                </h2>
+                <p class="section-description">
+                    Dilengkapi dengan teknologi medis terbaru dan fasilitas yang nyaman 
+                    untuk memberikan pengalaman perawatan kesehatan terbaik.
+                </p>
+            </div>
+
+            <div class="facilities-grid scroll-animate">
+                <div class="facility-card">
+                    <img src="https://images.pexels.com/photos/668300/pexels-photo-668300.jpeg?auto=compress&cs=tinysrgb&w=600" alt="ICU Modern">
+                    <div class="facility-overlay">
+                        <div class="facility-info">
+                            <h3>ICU Modern</h3>
+                            <p>Unit perawatan intensif dengan teknologi monitoring canggih</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ruang Operasi">
+                    <div class="facility-overlay">
+                        <div class="facility-info">
+                            <h3>Ruang Operasi</h3>
+                            <p>Ruang operasi steril dengan peralatan bedah terdepan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Laboratorium">
+                    <div class="facility-overlay">
+                        <div class="facility-info">
+                            <h3>Laboratorium</h3>
+                            <p>Lab diagnostik lengkap dengan hasil akurat dan cepat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Radiologi">
+                    <div class="facility-overlay">
+                        <div class="facility-info">
+                            <h3>Radiologi</h3>
+                            <p>CT Scan, MRI, dan peralatan pencitraan medis terbaru</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.pexels.com/photos/4386465/pexels-photo-4386465.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ruang Rawat VIP">
+                    <div class="facility-overlay">
+                        <div class="facility-info">
+                            <h3>Ruang Rawat VIP</h3>
+                            <p>Kamar perawatan premium dengan fasilitas hotel berbintang</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Apotek 24 Jam">
+                    <div class="facility-overlay">
+                        <div class="facility-info">
+                            <h3>Apotek 24 Jam</h3>
+                            <p>Apotek lengkap dengan obat-obatan berkualitas tersedia 24 jam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="kontak">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <div class="section-badge">Hubungi Kami</div>
+                <h2 class="section-title">
+                    Kontak &
+                    <span class="gradient-text">Lokasi</span>
+                </h2>
+                <p class="section-description">
+                    Hubungi kami untuk informasi lebih lanjut atau untuk membuat janji temu. 
+                    Tim customer service kami siap membantu Anda.
+                </p>
+            </div>
+
+            <div class="contact-grid scroll-animate">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4 style="font-weight: bold; margin-bottom: 0.5rem; color: #1f2937;">Alamat</h4>
+                            <p style="color: #6b7280; line-height: 1.6;">
+                                Jl. Kesehatan Raya No. 123<br>
+                                Kebayoran Baru, Jakarta Selatan<br>
+                                DKI Jakarta 12180
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4 style="font-weight: bold; margin-bottom: 0.5rem; color: #1f2937;">Telepon</h4>
+                            <p style="color: #6b7280; line-height: 1.6;">
+                                Emergency: (021) 555-0123<br>
+                                Informasi: (021) 555-0124<br>
+                                Appointment: (021) 555-0125
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4 style="font-weight: bold; margin-bottom: 0.5rem; color: #1f2937;">Email</h4>
+                            <p style="color: #6b7280; line-height: 1.6;">
+                                info@rssehatsejalahtera.com<br>
+                                appointment@rssehatsejalahtera.com<br>
+                                emergency@rssehatsejalahtera.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4 style="font-weight: bold; margin-bottom: 0.5rem; color: #1f2937;">Jam Operasional</h4>
+                            <p style="color: #6b7280; line-height: 1.6;">
+                                Senin - Jumat: 06:00 - 22:00<br>
+                                Sabtu - Minggu: 08:00 - 20:00<br>
+                                Emergency: 24 Jam
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem; color: #1f2937;">
+                        Buat Janji Temu
+                    </h3>
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Layanan yang Dibutuhkan</label>
+                            <select id="service" name="service" required>
+                                <option value="">Pilih Layanan</option>
+                                <option value="kardiologi">Kardiologi</option>
+                                <option value="neurologi">Neurologi</option>
+                                <option value="pediatri">Pediatri</option>
+                                <option value="oftalmologi">Oftalmologi</option>
+                                <option value="ortopedi">Ortopedi</option>
+                                <option value="gawat-darurat">Gawat Darurat</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Tanggal Preferred</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan/Keluhan</label>
+                            <textarea id="message" name="message" placeholder="Deskripsikan keluhan atau informasi tambahan..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="fas fa-calendar-check"></i>
+                            Buat Janji Temu
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #0ea5e9, #14b8a6); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">
+                            RS
+                        </div>
+                        <div>
+                            <h3 style="color: white; margin: 0;">RS Sehat Sejahtera</h3>
+                            <p style="margin: 0; font-size: 0.9rem;">Melayani dengan Hati</p>
+                        </div>
+                    </div>
+                    <p>
+                        Rumah sakit terpercaya yang telah melayani masyarakat Indonesia selama lebih dari 25 tahun 
+                        dengan dedikasi tinggi untuk memberikan pelayanan kesehatan terbaik.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Layanan Kami</h3>
+                    <ul>
+                        <li><a href="#layanan">Kardiologi</a></li>
+                        <li><a href="#layanan">Neurologi</a></li>
+                        <li><a href="#layanan">Pediatri</a></li>
+                        <li><a href="#layanan">Oftalmologi</a></li>
+                        <li><a href="#layanan">Ortopedi</a></li>
+                        <li><a href="#layanan">Gawat Darurat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="#tentang">Tentang Kami</a></li>
+                        <li><a href="#dokter">Tim Dokter</a></li>
+                        <li><a href="#fasilitas">Fasilitas</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Berita</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak Emergency</h3>
+                    <p><strong>24 Jam Emergency</strong></p>
+                    <p style="font-size: 1.5rem; font-weight: bold; color: #0ea5e9; margin: 0.5rem 0;">
+                        (021) 555-0123
+                    </p>
+                    <p><strong>Ambulance Service</strong></p>
+                    <p style="font-size: 1.5rem; font-weight: bold; color: #ef4444; margin: 0.5rem 0;">
+                        (021) 555-911
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Alamat:</strong><br>
+                        Jl. Kesehatan Raya No. 123<br>
+                        Jakarta Selatan 12180
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RS Sehat Sejahtera. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            // Animate hamburger menu
+            const spans = mobileMenu.querySelectorAll('span');
+            if (navMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        const navLinks = document.querySelectorAll('#nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const spans = mobileMenu.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll-animate class
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        const appointmentForm = document.getElementById('appointmentForm');
+        appointmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.phone || !data.email || !data.service || !data.date) {
+                alert('Mohon lengkapi semua field yang wajib diisi!');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('Terima kasih! Janji temu Anda telah diterima. Tim kami akan menghubungi Anda segera untuk konfirmasi.');
+            this.reset();
+        });
+
+        // Set minimum date to today for appointment form
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const startTime = Date.now();
+            
+            function updateCounter() {
+                const currentTime = Date.now();
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const current = Math.floor(progress * target);
+                
+                if (element.textContent.includes('+')) {
+                    element.textContent = current.toLocaleString() + '+';
+                } else if (element.textContent.includes('.')) {
+                    element.textContent = (current / 10).toFixed(1);
+                } else if (element.textContent.includes('/')) {
+                    element.textContent = '24/7';
+                } else {
+                    element.textContent = current.toLocaleString();
+                }
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // Animate counters when they come into view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const text = target.textContent;
+                    
+                    if (text.includes('50,000+')) {
+                        animateCounter(target, 50000);
+                    } else if (text.includes('4.8/5')) {
+                        animateCounter(target, 48);
+                    } else if (text.includes('200+')) {
+                        animateCounter(target, 200);
+                    } else if (text.includes('25+')) {
+                        animateCounter(target, 25);
+                    } else if (text.includes('15+')) {
+                        animateCounter(target, 15);
+                    }
+                    
+                    counterObserver.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe stat numbers
+        document.querySelectorAll('.stat-number, .stats-number, .achievement-number').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Add smooth reveal animation for hero elements
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in-up').forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }, 100);
+    </script>
+</body>
+</html>
