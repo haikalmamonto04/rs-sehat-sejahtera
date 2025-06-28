@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
                   className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg"
                 />
               </motion.div>
-              <h3 className="text-2xl font-bold mb-2">RS Sehat Sejahtera</h3>
+              <h3 className="text-2xl font-bold mb-2">RSUD Bima</h3>
               <p className="text-sky-100">
                 Pelayanan kesehatan terbaik dengan teknologi modern
               </p>

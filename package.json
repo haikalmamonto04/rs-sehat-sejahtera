@@ -1,6 +1,6 @@
 {
-  "name": "rs-sehat-sejahtera",
-  "description": "Website Rumah Sakit Sehat Sejahtera - Modern Healthcare Website",
+  "name": "rsud-bima",
+  "description": "Website RSUD Bima - Modern Healthcare Website",
   "private": true,
   "version": "1.0.0",
   "type": "module",

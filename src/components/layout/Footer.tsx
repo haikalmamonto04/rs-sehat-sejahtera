@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold">RS Sehat Sejahtera</h3>
+                <h3 className="text-xl font-bold">RSUD Bima</h3>
                 <p className="text-sm text-gray-300">Rumah Sakit Terpercaya</p>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-gray-700 mt-12 pt-8 text-center">
           <p className="text-gray-300">
-            © 2025 RS Sehat Sejahtera. All rights reserved.
+            © 2025 RSUD Bima. All rights reserved.
           </p>
         </div>
       </div>
