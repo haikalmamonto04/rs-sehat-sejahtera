@@ -75,11 +75,15 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.div 
-                className="text-6xl mb-4"
+                className="mb-4"
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
               >
-                🏥
+                <img 
+                  src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=200&h=200&fit=crop&crop=center" 
+                  alt="RS Sehat Sejahtera Logo"
+                  className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg"
+                />
               </motion.div>
               <h3 className="text-2xl font-bold mb-2">RS Sehat Sejahtera</h3>
               <p className="text-sky-100">
